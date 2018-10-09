@@ -1,0 +1,7 @@
+" Vim-related files
+*.swp
+*.swo
+
+" Emacs-related files
+*~
+
