@@ -13,11 +13,11 @@ for i = 1:length(speaker_labels)
         binary_speaker(i) = 0;
     end
 end
-
-speaker1_indices = find(binary_speaker);
-speaker1_data = aligned(32, speaker1_indices);
-otherspeaker_indices = find(~binary_speaker);
-otherspeaker_data = aligned(32, otherspeaker_indices);
+% 
+% speaker1_indices = find(binary_speaker);
+% speaker1_data = aligned(electrode, speaker1_indices);
+% otherspeaker_indices = find(~binary_speaker);
+% otherspeaker_data = aligned(electrode, otherspeaker_indices);
 
 % create summary of data
 sectionchange = [true; diff(binary_speaker(:)) ~= 0];   % TRUE if values change
@@ -49,14 +49,5 @@ end
 speechref = ref(find(ref(:,1) == "Speech"),:);
 compref = ref(find(ref(:,1) == "Comprehension"),:);
 
-%histograms
-comp_indices = find(ref(:,1) == "Comprehension");
-comp_lengths = ref(comp_indices, 4);
-hist(str2double(comp_lengths)); title("Comprehension lengths");
-
-speech_indices = find(ref(:,1) == "Speech");
-speech_lengths = ref(speech_indices, 4);
-figure;
-hist(str2double(speech_lengths)); title("Speech lengths");
 
 end
