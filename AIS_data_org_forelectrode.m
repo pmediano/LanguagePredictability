@@ -1,5 +1,4 @@
-function [speechref,compref] = AIS_data_org(ss,day,part,conversation)
-filename = strcat('NY',ss,'_',day,'_Part',part,'_conversation',conversation);
+function [ref] = AIS_data_org_forelectrode(filename)
 filepath = '/Volumes/hasson/ariel/247/data/NY625/conversations/';
 
 load(strcat(filepath,filename,'/misc/',filename,'_aligned.mat'));
@@ -45,9 +44,9 @@ for i=1:length(sectionlength)
     end
     ref(i,4) = sectionlength(i);
 end
-
-speechref = ref(find(ref(:,1) == "Speech"),:);
-compref = ref(find(ref(:,1) == "Comprehension"),:);
+% 
+% speechref = ref(find(ref(:,1) == "Speech"),:);
+% compref = ref(find(ref(:,1) == "Comprehension"),:);
 
 
 end

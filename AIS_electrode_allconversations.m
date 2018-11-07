@@ -1,15 +1,14 @@
-function [x] = AIS_electrode(ss,day,part,conversation)
 cd('/Volumes/hasson/ariel/247/data/NY625/conversations/');
 list = dir('NY625*conversation*');
+
 for f = 1:1:length(list)
     filename = list(f).name;
-% filename = strcat('NY',ss,'_',day,'_Part',part,'_conversation',conversation);
 filepath = '/Volumes/hasson/ariel/247/data/NY625/conversations/';
 load(strcat(filepath,filename,'/misc/',filename,'_aligned.mat')); %raw files
 
 destination = '/Users/jeanluo/Desktop/LanguagePredictability-master';
-
-ref = AIS_data_org_mac(ss,day,part,conversation);
+cd(destination);
+ref = AIS_data_org_forelectrode(filename);
 AISvals = strings([length(ref),130]);
 AISvals(1,1) = "Segment"; AISvals(1,2) = "Conversation"; 
 AISvals(1,3) = "Speaker"; AISvals(1,4) = "Length";
@@ -49,7 +48,6 @@ AISvals(j+1,i+4) = aisCalc.computeAverageLocalOfObservations();
   end
 end
 
-save(strcat(destination,'/AISsummary.mat'),'AISvals');
-end
+save(strcat(destination,'/AISsummary.mat'),'AISvals','-append');
 end
 end
