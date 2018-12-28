@@ -1,6 +1,6 @@
 function [ref] = AIS_data_org_forelectrode(filename)
-filepath = '/Volumes/hasson/ariel/247/data/NY625/conversations/';
-
+% filepath = '/mnt/bucket/labs/hasson/ariel/247/data/NY625/conversations/';
+filepath = 'Z:/ariel/247/data/NY625/conversations/';
 load(strcat(filepath,filename,'/misc/',filename,'_aligned.mat'));
 load(strcat(filepath,filename,'/labels/',filename,'_speaker_labels.mat'));
 % binary_speaker = zeros(length(speaker_labels));

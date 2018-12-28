@@ -1,12 +1,14 @@
-cd('/Volumes/hasson/ariel/247/data/NY625/conversations/');
+% cd('/mnt/bucket/labs/hasson/ariel/247/data/NY625/conversations/');
+cd ('Z:/ariel/247/data/NY625/conversations/');
 list = dir('NY625*conversation*');
 
 for f = 1:1:length(list)
     filename = list(f).name;
-filepath = '/Volumes/hasson/ariel/247/data/NY625/conversations/';
+% filepath = '/mnt/bucket/labs/hasson/ariel/247/data/NY625/conversations/';
+filepath = 'Z:/ariel/247/data/NY625/conversations/';
 load(strcat(filepath,filename,'/misc/',filename,'_aligned.mat')); %raw files
 
-destination = '/Users/jeanluo/Desktop/LanguagePredictability-master';
+destination = 'C:/Users/jeanl/Desktop/LanguagePredictability';
 cd(destination);
 ref = AIS_data_org_forelectrode(filename);
 AISvals = strings([length(ref),130]);
