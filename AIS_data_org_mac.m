@@ -1,6 +1,6 @@
-function [speechref, compref] = AIS_data_org(ss,day,part,conversation)
+function [ref] = AIS_data_org_mac(ss,day,part,conversation)
 filename = strcat('NY',ss,'_',day,'_Part',part,'_conversation',conversation);
-filepath = '/Volumes/hasson/ariel/247/data/NY625/conversations/';
+filepath = 'Z:/ariel/247/data/NY625/conversations/';
 
 load(strcat(filepath,filename,'/misc/',filename,'_aligned.mat'));
 load(strcat(filepath,filename,'/labels/',filename,'_speaker_labels.mat'));
@@ -46,8 +46,8 @@ for i=1:length(sectionlength)
     ref(i,4) = sectionlength(i);
 end
 
-speechref = ref(find(ref(:,1) == "Speech"),:);
-compref = ref(find(ref(:,1) == "Comprehension"),:);
+% speechref = ref(find(ref(:,1) == "Speech"),:);
+% compref = ref(find(ref(:,1) == "Comprehension"),:);
 
 
 end
